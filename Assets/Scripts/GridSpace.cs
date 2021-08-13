@@ -1,22 +1,3 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
-public class GridSpace : MonoBehaviour
-{
-    public Button button;
-    public Text buttonText;
-
-    private GameController gameController;
-
-    public void SetGameControllerReference(GameController controller)
-    {
-        gameController = controller;
-    }
-
-    public void SetSpace()
-    {
-        buttonText.text = gameController.GetPlayerSide();
-        button.interactable = false;
-        gameController.EndTurn();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:86087110d4292e70f1528ecddbd16d88bcc6c4879b8a459b993898622e17a298
+size 598

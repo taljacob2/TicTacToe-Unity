@@ -1,11 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="CMakeSettings">
-    <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
-    </configurations>
-  </component>
-  <component name="JavaScriptSettings">
-    <option name="languageLevel" value="ES6" />
-  </component>
-</project>
+version https://git-lfs.github.com/spec/v1
+oid sha256:be399df099f2f931b15811271a93315e7cbc305c6549a466cbec1327f0d8083b
+size 332

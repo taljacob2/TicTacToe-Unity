@@ -1,13 +1,3 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Rider ignored files
-/.idea.TicTacToe.iml
-/modules.xml
-/contentModel.xml
-/projectSettingsUpdater.xml
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-# Editor-based HTTP Client requests
-/httpRequests/
+version https://git-lfs.github.com/spec/v1
+oid sha256:753210f80fa9efd3523bb72bd62534887c57486d2bc48af53951bb73baf4f20e
+size 278
