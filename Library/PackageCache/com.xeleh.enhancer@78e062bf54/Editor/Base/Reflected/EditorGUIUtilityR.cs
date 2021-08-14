@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37ff489ca3ba34cf973253e2ac55b720ef477b1d97402051cf9d4b6cc0977314
-size 436
+using System;
+using System.Reflection;
+using UnityEngine;
+
+namespace XT.Base {
+
+internal class EditorGUIUtilityR : EditorType {
+
+EditorGUIUtilityR() {}
+
+static Type type = typeof(UnityEditor.EditorGUIUtility);
+static MethodInfo GetEditorAssetBundleMethod = type.GetNonPublicMethod("GetEditorAssetBundle");
+	
+public static AssetBundle GetEditorAssetBundle() {
+	return (AssetBundle)GetEditorAssetBundleMethod?.Invoke(null, null);
+}
+
+}
+
+}

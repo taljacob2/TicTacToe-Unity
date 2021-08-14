@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0cf35e153688dfafa06382809b04671012971cf6544e28e38f93e784ed83e7f9
-size 934
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Tal\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Tal\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_TicTacToe.-1470491390.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Tal\C_Code\c#\Unity\TicTacToe\TicTacToe" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="TicTacToe.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

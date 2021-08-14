@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:97fe9700c1bb3a153840298eeec5624538d06088bf0edacb47208ab2a9f8ae56
-size 1167
+using UnityEditor.TestTools.TestRunner.Api;
+
+namespace UnityEditor.TestTools.TestRunner.GUI
+{
+    internal class WindowResultUpdater : ICallbacks, ITestTreeRebuildCallbacks
+    {
+        public void RunStarted(ITestAdaptor testsToRun)
+        {
+        }
+
+        public void RunFinished(ITestResultAdaptor testResults)
+        {
+            if (TestRunnerWindow.s_Instance != null)
+            {
+                TestRunnerWindow.s_Instance.RebuildUIFilter();
+            }
+        }
+
+        public void TestStarted(ITestAdaptor testName)
+        {
+        }
+
+        public void TestFinished(ITestResultAdaptor test)
+        {
+            if (TestRunnerWindow.s_Instance == null)
+            {
+                return;
+            }   
+
+            var result = new TestRunnerResult(test);
+            TestRunnerWindow.s_Instance.m_SelectedTestTypes.UpdateResult(result);
+        }
+
+        public void TestTreeRebuild(ITestAdaptor test)
+        {
+            if (TestRunnerWindow.s_Instance == null)
+            {
+                return;
+            }
+            
+            TestRunnerWindow.s_Instance.m_SelectedTestTypes.UpdateTestTree(test);
+        }
+    }
+}

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ffc2702de8165b8a61ac7e7a4b8acc6b6a53df14314ff1897340af92a39ad684
-size 313
+{
+  "packageId": "",
+  "resolvedPath": "",
+  "name": "com.xeleh.enhancer",
+  "displayName": "Editor Enhancer",
+  "version": "0.3.6",
+  "unity": "2019.3",
+  "description": "A collection of extensions to enhance the Unity Editor",
+  "keywords": [
+    "editor",
+    "extensions",
+    "layout"
+  ],
+  "type": "tool"
+}

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:35d7e7a11f3cde67ce00cadded50b763c9ebff383de77180cf924cbacadb340f
-size 758
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="Remote Host (dcb85d3a-6e13-4494-a90b-4cb00a08a777)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/.idea/.idea.TicTacToe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="WSL (dd793c56-1ea4-4e1b-84b8-058e8b25f1e7)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/.idea/.idea.TicTacToe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

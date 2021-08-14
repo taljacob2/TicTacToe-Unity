@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c7f2c614de1c4a72825f53dba2186beb9e9bbb78fa75b03158e8096a14597d12
-size 408
+using System;
+using System.Reflection;
+
+namespace XT.Base {
+
+[AttributeUsage(AttributeTargets.Field)]
+internal class Setting : Attribute {
+
+public object obj;
+public FieldInfo field;
+public string name;
+public Type type;
+public string label = null;
+public object defaultValue;
+public bool toggle;
+
+public Setting(string label = null, bool toggle = false) {
+	this.label = label;
+	this.toggle = toggle;
+}
+
+}
+
+}

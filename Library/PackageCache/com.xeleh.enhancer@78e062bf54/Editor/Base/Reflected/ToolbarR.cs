@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:543d67b77c2b5daa972b6ad9c707d576a27f6ed997798015fa978be131c17c68
-size 484
+using System;
+using System.Reflection;
+
+namespace XT.Base {
+
+internal class ToolbarR : EditorType {
+
+ToolbarR() { }
+
+static Type type = GetType("Toolbar");
+static FieldInfo getField = type?.GetField("get");
+static FieldInfo m_LastLoadedLayoutNameField = 
+	type?.GetNonPublicField("m_LastLoadedLayoutName");
+	
+public static string m_LastLoadedLayoutName {
+	get {
+		object toolbar = getField?.GetValue(null);
+		return (string)m_LastLoadedLayoutNameField?.GetValue(toolbar);
+	}
+}
+
+}
+
+}

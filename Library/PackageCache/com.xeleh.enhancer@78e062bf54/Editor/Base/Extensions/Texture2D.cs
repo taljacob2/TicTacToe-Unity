@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d7115ed9c4f2349844dfeadc1eb38b399ff2c098bf3ce7f532ed47f76ceecf7d
-size 665
+using UnityEngine;
+
+namespace XT.Base {
+
+internal static partial class Extensions {
+
+public static Texture2D ReadableClone(this Texture2D source) {
+	RenderTexture render = RenderTexture.GetTemporary(source.width, source.height, 0,
+		RenderTextureFormat.Default, RenderTextureReadWrite.Linear);
+	Graphics.Blit(source, render);
+	RenderTexture previous = RenderTexture.active;
+	RenderTexture.active = render;
+	Texture2D readable = new Texture2D(source.width, source.height);
+	readable.ReadPixels(new Rect(0, 0, render.width, render.height), 0, 0);
+	readable.Apply();
+	RenderTexture.active = previous;
+	RenderTexture.ReleaseTemporary(render);
+	return readable;
+}
+
+}
+
+}

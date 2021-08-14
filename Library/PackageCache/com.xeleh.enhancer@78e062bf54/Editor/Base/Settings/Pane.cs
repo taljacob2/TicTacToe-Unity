@@ -1,3 +1,57 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:120237b5c56ab6632b489b3488c6e6b710ed070829143af7da963ca33e7946c7
-size 1230
+using System;
+using UnityEditor;
+using UnityEngine;
+
+namespace XT.Base {
+
+internal class Pane : SettingsProvider {
+
+public event Action OnChange;
+
+IHasSettings settingsContainer;
+
+protected Pane(string label, string path, SettingsScope scope, IHasSettings settingsContainer) : 
+base(path, scope) {
+	this.label = label;
+	this.settingsContainer = settingsContainer;
+	settingsContainer?.Load();
+}
+
+public Setting GetSetting(string name) {
+	return settingsContainer?.GetSetting(name);
+}
+
+public Setting[] GetSettings() {
+	return settingsContainer?.GetSettings();
+}
+
+public override void OnGUI(string searchContext) {
+	settingsContainer?.Check();
+	EditorGUILayout.BeginVertical(Styles.paneStyle);
+	EditorGUIUtility.labelWidth = 250;
+	PaneGUI.DrawSettings(settingsContainer?.GetSettings());
+	OnFooterGUI();
+	EditorGUILayout.EndVertical();
+	if (GUI.changed) {
+		settingsContainer?.Save();
+		OnChange?.Invoke();
+	}
+}
+
+// the default footer GUI is not coherent with the rest of providers, so disable it
+public override sealed void OnFooterBarGUI() { }
+
+protected virtual void OnFooterGUI() { }
+
+protected void Reset() {
+	settingsContainer?.Reset();
+	OnReset();
+	Repaint();
+	OnChange?.Invoke();
+}
+
+protected virtual void OnReset() { }
+
+}
+
+}

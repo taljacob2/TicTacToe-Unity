@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:86087110d4292e70f1528ecddbd16d88bcc6c4879b8a459b993898622e17a298
-size 598
+﻿using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
+
+public class GridSpace : MonoBehaviour
+{
+    [FormerlySerializedAs("button")] public Button m_Button;
+    [FormerlySerializedAs("buttonText")] public Text m_ButtonText;
+
+    private GameController m_GameController;
+
+    public void SetGameControllerReference(GameController i_Controller)
+    {
+        m_GameController = i_Controller;
+    }
+
+    public void SetSpace()
+    {
+        m_ButtonText.text = m_GameController.GetPlayerSide();
+        m_Button.interactable = false;
+        m_GameController.EndTurn();
+    }
+}

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b00102ee2fab9936ae8af782b284d806e4b6853396e47063d78158dcbc4b2523
-size 569
+using System;
+using System.Reflection;
+
+namespace XT.Base {
+
+internal class ContainerWindowR : EditorType {
+
+ContainerWindowR() {}
+
+static ContainerWindowR instance = new ContainerWindowR();
+
+object containerWindow;
+
+public static ContainerWindowR Wrap(object containerWindow) {
+	instance.containerWindow = containerWindow;
+	return instance;
+}
+
+static Type type = GetType("ContainerWindow");
+static PropertyInfo rootSplitViewProperty = type?.GetProperty("rootSplitView");
+
+public object rootSplitView {
+	get => rootSplitViewProperty?.GetValue(containerWindow);
+}
+
+}
+
+}

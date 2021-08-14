@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6b9c783db932451eef813a686ec0a194feb4f8ea8c673a82912ab5a8c8dbfcf
-size 665
+﻿﻿using System;
+using UnityEditor;
+using UnityEngine;
+using XT.Base;
+
+namespace XT.Enhancer {
+
+[Serializable]
+internal class ThemeSettings : PartSettings {
+
+[Setting("Enable Dark Theme")]
+public bool darkEnabled = false;
+
+[Setting("Auto Enable On Startup")]
+public bool autoEnable = false;
+
+public override void OnGUI(Setting setting) {
+	if (!ThemeManager.supported) { return; }
+	bool guiEnabled = GUI.enabled;
+	GUI.enabled = !Application.isPlaying;
+	base.OnGUI(setting);
+	GUI.enabled = guiEnabled;
+}
+
+public override void OnChange() {
+	if (darkEnabled != ThemeManager.darkEnabled) {
+		EditorApplication.delayCall += () => { ThemeManager.SetTheme(); };
+	}
+}
+
+}
+
+}

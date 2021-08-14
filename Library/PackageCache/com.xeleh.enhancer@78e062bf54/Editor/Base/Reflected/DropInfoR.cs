@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1ecc3b04781db249081ab62729ca4a70fdf211d21b96c337f237cdb24ff95a09
-size 460
+using System;
+using System.Reflection;
+
+namespace XT.Base {
+
+internal class DropInfoR : EditorType {
+
+DropInfoR() { }
+
+static DropInfoR instance = new DropInfoR();
+
+object dropInfo;
+
+public static DropInfoR Wrap(object dropInfo) {
+	instance.dropInfo = dropInfo;
+	return instance;
+}
+
+static Type type = GetType("DropInfo");
+static FieldInfo dropAreaField = type?.GetField("dropArea");
+
+public object dropArea {
+	get => dropAreaField.GetValue(dropInfo);
+}
+
+}
+
+}
